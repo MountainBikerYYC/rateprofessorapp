@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Please Rate Your Professor</title>
+</head>
+<body>
+    <div class="container">
+        <img src="../static/uclogo.png" alt="school_logo" class="logo">
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif%}   
+        <form action="/" method="POST">
+            <div>
+                <h1 style="color:rgb(0, 0, 0); text-align: left;">Rate Your Professor
+                    <button type ="submit" style="float:right;" class = "btnMain button3" name="button3", value ="view_all">View all professors</button>
+                </h1>
+            </div>
+        </form>
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <h3>Professor name</h3>
+                <input 
+                    type="text"
+                    name="professor"
+                    placeholder="Ex: Jane Smith"
+                />
+            </div>
+            <div class="form-group">
+                <h3>Department</h3>
+                <select name="department">
+                  <option value="">Select Department</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Science">Science</option>
+                  <option value="Arts">Arts</option>
+                  <option value="Business">Business</option>
+                  <option value="Kinesiology">Kinesiology</option>
+                  <option value="Nursing">Nursing</option>
+                  <option value="Medicine">Medicine</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <h3>Please rate your professor</h3>
+                <input type="radio" name="rating" value="1" /> 1
+                <input type="radio" name="rating" value="2" /> 2
+                <input type="radio" name="rating" value="3" /> 3
+                <input type="radio" name="rating" value="4" /> 4
+                <input type="radio" name="rating" value="5" /> 5
+                <input type="radio" name="rating" value="6" /> 6
+                <input type="radio" name="rating" value="7" /> 7
+                <input type="radio" name="rating" value="8" /> 8
+                <input type="radio" name="rating" value="9" /> 9
+                <input type="radio" name="rating" value="10" checked /> 10
+              </div>
+              <div class="form-group">
+                <h3>Feedback for the professor</h3>
+                <textarea
+                  name="comments"
+                  id=""
+                  cols="30"
+                  rows="10"
+                  placeholder="Tell us any positive or negative feedback"
+                ></textarea>
+              </div>
+              <input type="submit" value="Submit" class="btn" />
+        </form>
+    </div>
+</body>
+</html>
